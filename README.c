@@ -1,4 +1,3 @@
-<h1 align = "center">Gigantes De MDF</h1>
 
 Projeto referente à disciplina de Programação de Hardware, lecionada pelo professor Sergio Schina, do curso de Engenharia de Computação da Universidade Santa Cecília.
 
