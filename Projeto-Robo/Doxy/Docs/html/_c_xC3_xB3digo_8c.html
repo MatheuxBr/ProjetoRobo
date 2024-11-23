@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Crazy Frog: Referência do Arquivo Src/Código.c</title>
+<link rel="icon" href="crazy2-removebg-preview.png" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="Crazy_Frog (2).png"/></td>
+  <td id="projectalign">
+   <div id="projectname">Crazy Frog<span id="projectnumber">&#160;3.1</span>
+   </div>
+   <div id="projectbrief">Projeto referente à disciplina de Programação de Hardware, lecionada pelo professor Sergio Schina, do curso de Engenharia de Computação da Universidade Santa Cecília.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_413f4e031a85da0d68269c6fd2f76e1c.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle"><div class="title">Referência do Arquivo Código.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;avr/interrupt.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a37b5516cb2ef7cfc5c81d5524c7d8099" id="r_a37b5516cb2ef7cfc5c81d5524c7d8099"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37b5516cb2ef7cfc5c81d5524c7d8099">VM1</a>&#160;&#160;&#160;PB6</td></tr>
+<tr class="separator:a37b5516cb2ef7cfc5c81d5524c7d8099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa976d048871542959815268bebd806a1" id="r_aa976d048871542959815268bebd806a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa976d048871542959815268bebd806a1">M1A</a>&#160;&#160;&#160;PB7</td></tr>
+<tr class="separator:aa976d048871542959815268bebd806a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b2c89b2141bbc52e3396c250d0befe" id="r_a96b2c89b2141bbc52e3396c250d0befe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96b2c89b2141bbc52e3396c250d0befe">M1B</a>&#160;&#160;&#160;PB5</td></tr>
+<tr class="separator:a96b2c89b2141bbc52e3396c250d0befe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e5d243898332d428375f24c83f3fc1d" id="r_a0e5d243898332d428375f24c83f3fc1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e5d243898332d428375f24c83f3fc1d">VM2</a>&#160;&#160;&#160;PD7</td></tr>
+<tr class="separator:a0e5d243898332d428375f24c83f3fc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191ca14d2a117364f770f12e2c302e7d" id="r_a191ca14d2a117364f770f12e2c302e7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a191ca14d2a117364f770f12e2c302e7d">M2A</a>&#160;&#160;&#160;PD6</td></tr>
+<tr class="separator:a191ca14d2a117364f770f12e2c302e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e248b58555201793583deefa525d74" id="r_ab4e248b58555201793583deefa525d74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e248b58555201793583deefa525d74">M2B</a>&#160;&#160;&#160;PD5</td></tr>
+<tr class="separator:ab4e248b58555201793583deefa525d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e84d07b5e731e0a7e9b924bea06149d" id="r_a5e84d07b5e731e0a7e9b924bea06149d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e84d07b5e731e0a7e9b924bea06149d">CONTROLE</a>&#160;&#160;&#160;PD2</td></tr>
+<tr class="separator:a5e84d07b5e731e0a7e9b924bea06149d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aa85ae9867fabf70ec72cd3bf6fb6b9" id="r_a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">LED1</a>&#160;&#160;&#160;PB0</td></tr>
+<tr class="separator:a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09fe5bf321b9a2de26bd5e5b9af6424" id="r_ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad09fe5bf321b9a2de26bd5e5b9af6424">LED2</a>&#160;&#160;&#160;PB1</td></tr>
+<tr class="separator:ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7ff8e253a7412f83deba3a447028a8" id="r_a4b7ff8e253a7412f83deba3a447028a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b7ff8e253a7412f83deba3a447028a8">LED3</a>&#160;&#160;&#160;PB2</td></tr>
+<tr class="separator:a4b7ff8e253a7412f83deba3a447028a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa6f083fd9b05ac8a6b94f34322661e" id="r_a9fa6f083fd9b05ac8a6b94f34322661e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa6f083fd9b05ac8a6b94f34322661e">LDR</a>&#160;&#160;&#160;PC0</td></tr>
+<tr class="separator:a9fa6f083fd9b05ac8a6b94f34322661e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec8393e9445109104fd54119e06fc08" id="r_a7ec8393e9445109104fd54119e06fc08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ec8393e9445109104fd54119e06fc08">LASER</a>&#160;&#160;&#160;PD4</td></tr>
+<tr class="separator:a7ec8393e9445109104fd54119e06fc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d" id="r_a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
+<tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5609837d012ee312f34d53dcbb9786c" id="r_aa5609837d012ee312f34d53dcbb9786c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5609837d012ee312f34d53dcbb9786c">AndarFrente</a> ()</td></tr>
+<tr class="separator:aa5609837d012ee312f34d53dcbb9786c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ecbe5e6d07c9c11c350c8bb29811f5d" id="r_a1ecbe5e6d07c9c11c350c8bb29811f5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ecbe5e6d07c9c11c350c8bb29811f5d">AndarTras</a> ()</td></tr>
+<tr class="separator:a1ecbe5e6d07c9c11c350c8bb29811f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf77d6a3fb58d0ee542c96b71c5f3f1" id="r_a3bf77d6a3fb58d0ee542c96b71c5f3f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bf77d6a3fb58d0ee542c96b71c5f3f1">Parar</a> ()</td></tr>
+<tr class="separator:a3bf77d6a3fb58d0ee542c96b71c5f3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e49688fa7293f74e64276d6a2d987a" id="r_a80e49688fa7293f74e64276d6a2d987a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80e49688fa7293f74e64276d6a2d987a">Giro</a> ()</td></tr>
+<tr class="separator:a80e49688fa7293f74e64276d6a2d987a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4f279957f2a7778c78c4e7f817d52fe" id="r_aa4f279957f2a7778c78c4e7f817d52fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4f279957f2a7778c78c4e7f817d52fe">alternarLaser</a> ()</td></tr>
+<tr class="separator:aa4f279957f2a7778c78c4e7f817d52fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2d7cdddfb682dcc0391e60cf42c7d6" id="r_add2d7cdddfb682dcc0391e60cf42c7d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add2d7cdddfb682dcc0391e60cf42c7d6">ISR</a> (TIMER0_OVF_vect)</td></tr>
+<tr class="separator:add2d7cdddfb682dcc0391e60cf42c7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea150fcd685610cb9f7672fce361e53" id="r_afea150fcd685610cb9f7672fce361e53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afea150fcd685610cb9f7672fce361e53">ISR</a> (INT0_vect)</td></tr>
+<tr class="separator:afea150fcd685610cb9f7672fce361e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:aa8e39bac5a0cb7e904153a5bfdf131be" id="r_aa8e39bac5a0cb7e904153a5bfdf131be"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8e39bac5a0cb7e904153a5bfdf131be">ULTIMOCODIGO</a> = 0</td></tr>
+<tr class="separator:aa8e39bac5a0cb7e904153a5bfdf131be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a4045e78702b611bdd35183478c6b7" id="r_ab0a4045e78702b611bdd35183478c6b7"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a4045e78702b611bdd35183478c6b7">ULTIMOCODIGOVALIDO</a> = 0</td></tr>
+<tr class="separator:ab0a4045e78702b611bdd35183478c6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6355cf4599b857b73d82f27befcd2245" id="r_a6355cf4599b857b73d82f27befcd2245"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6355cf4599b857b73d82f27befcd2245">contador</a> = 0</td></tr>
+<tr class="separator:a6355cf4599b857b73d82f27befcd2245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6c372d62d2c9ac9ca3c613fdb5d01b" id="r_aab6c372d62d2c9ac9ca3c613fdb5d01b"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab6c372d62d2c9ac9ca3c613fdb5d01b">laserState</a> = 0</td></tr>
+<tr class="separator:aab6c372d62d2c9ac9ca3c613fdb5d01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a5e84d07b5e731e0a7e9b924bea06149d" name="a5e84d07b5e731e0a7e9b924bea06149d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e84d07b5e731e0a7e9b924bea06149d">&#9670;&#160;</a></span>CONTROLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONTROLE&#160;&#160;&#160;PD2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ec8393e9445109104fd54119e06fc08" name="a7ec8393e9445109104fd54119e06fc08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ec8393e9445109104fd54119e06fc08">&#9670;&#160;</a></span>LASER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LASER&#160;&#160;&#160;PD4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9fa6f083fd9b05ac8a6b94f34322661e" name="a9fa6f083fd9b05ac8a6b94f34322661e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fa6f083fd9b05ac8a6b94f34322661e">&#9670;&#160;</a></span>LDR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LDR&#160;&#160;&#160;PC0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8aa85ae9867fabf70ec72cd3bf6fb6b9" name="a8aa85ae9867fabf70ec72cd3bf6fb6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa85ae9867fabf70ec72cd3bf6fb6b9">&#9670;&#160;</a></span>LED1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED1&#160;&#160;&#160;PB0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad09fe5bf321b9a2de26bd5e5b9af6424" name="ad09fe5bf321b9a2de26bd5e5b9af6424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09fe5bf321b9a2de26bd5e5b9af6424">&#9670;&#160;</a></span>LED2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED2&#160;&#160;&#160;PB1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b7ff8e253a7412f83deba3a447028a8" name="a4b7ff8e253a7412f83deba3a447028a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7ff8e253a7412f83deba3a447028a8">&#9670;&#160;</a></span>LED3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED3&#160;&#160;&#160;PB2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa976d048871542959815268bebd806a1" name="aa976d048871542959815268bebd806a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa976d048871542959815268bebd806a1">&#9670;&#160;</a></span>M1A</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M1A&#160;&#160;&#160;PB7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a96b2c89b2141bbc52e3396c250d0befe" name="a96b2c89b2141bbc52e3396c250d0befe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96b2c89b2141bbc52e3396c250d0befe">&#9670;&#160;</a></span>M1B</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M1B&#160;&#160;&#160;PB5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a191ca14d2a117364f770f12e2c302e7d" name="a191ca14d2a117364f770f12e2c302e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a191ca14d2a117364f770f12e2c302e7d">&#9670;&#160;</a></span>M2A</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M2A&#160;&#160;&#160;PD6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4e248b58555201793583deefa525d74" name="ab4e248b58555201793583deefa525d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e248b58555201793583deefa525d74">&#9670;&#160;</a></span>M2B</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define M2B&#160;&#160;&#160;PD5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37b5516cb2ef7cfc5c81d5524c7d8099" name="a37b5516cb2ef7cfc5c81d5524c7d8099"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b5516cb2ef7cfc5c81d5524c7d8099">&#9670;&#160;</a></span>VM1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VM1&#160;&#160;&#160;PB6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0e5d243898332d428375f24c83f3fc1d" name="a0e5d243898332d428375f24c83f3fc1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e5d243898332d428375f24c83f3fc1d">&#9670;&#160;</a></span>VM2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VM2&#160;&#160;&#160;PD7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="aa4f279957f2a7778c78c4e7f817d52fe" name="aa4f279957f2a7778c78c4e7f817d52fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f279957f2a7778c78c4e7f817d52fe">&#9670;&#160;</a></span>alternarLaser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void alternarLaser </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5609837d012ee312f34d53dcbb9786c" name="aa5609837d012ee312f34d53dcbb9786c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5609837d012ee312f34d53dcbb9786c">&#9670;&#160;</a></span>AndarFrente()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AndarFrente </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ecbe5e6d07c9c11c350c8bb29811f5d" name="a1ecbe5e6d07c9c11c350c8bb29811f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ecbe5e6d07c9c11c350c8bb29811f5d">&#9670;&#160;</a></span>AndarTras()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AndarTras </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a80e49688fa7293f74e64276d6a2d987a" name="a80e49688fa7293f74e64276d6a2d987a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e49688fa7293f74e64276d6a2d987a">&#9670;&#160;</a></span>Giro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Giro </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afea150fcd685610cb9f7672fce361e53" name="afea150fcd685610cb9f7672fce361e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea150fcd685610cb9f7672fce361e53">&#9670;&#160;</a></span>ISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">INT0_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add2d7cdddfb682dcc0391e60cf42c7d6" name="add2d7cdddfb682dcc0391e60cf42c7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add2d7cdddfb682dcc0391e60cf42c7d6">&#9670;&#160;</a></span>ISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ISR </td>
+          <td>(</td>
+          <td class="paramtype">TIMER0_OVF_vect</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe" name="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3bf77d6a3fb58d0ee542c96b71c5f3f1" name="a3bf77d6a3fb58d0ee542c96b71c5f3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf77d6a3fb58d0ee542c96b71c5f3f1">&#9670;&#160;</a></span>Parar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Parar </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fc01d736fe50cf5b977f755b675f11d" name="a4fc01d736fe50cf5b977f755b675f11d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fc01d736fe50cf5b977f755b675f11d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="a6355cf4599b857b73d82f27befcd2245" name="a6355cf4599b857b73d82f27befcd2245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6355cf4599b857b73d82f27befcd2245">&#9670;&#160;</a></span>contador</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t contador = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab6c372d62d2c9ac9ca3c613fdb5d01b" name="aab6c372d62d2c9ac9ca3c613fdb5d01b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6c372d62d2c9ac9ca3c613fdb5d01b">&#9670;&#160;</a></span>laserState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t laserState = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8e39bac5a0cb7e904153a5bfdf131be" name="aa8e39bac5a0cb7e904153a5bfdf131be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e39bac5a0cb7e904153a5bfdf131be">&#9670;&#160;</a></span>ULTIMOCODIGO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t ULTIMOCODIGO = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0a4045e78702b611bdd35183478c6b7" name="ab0a4045e78702b611bdd35183478c6b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a4045e78702b611bdd35183478c6b7">&#9670;&#160;</a></span>ULTIMOCODIGOVALIDO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t ULTIMOCODIGOVALIDO = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

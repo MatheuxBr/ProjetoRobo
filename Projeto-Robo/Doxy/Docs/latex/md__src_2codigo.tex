@@ -1,0 +1,55 @@
+\chapter{codigo}
+\hypertarget{md__src_2codigo}{}\label{md__src_2codigo}\index{codigo@{codigo}}
+\#include \texorpdfstring{$<$}{<}avr/io.\+h\texorpdfstring{$>$}{>} \#include \texorpdfstring{$<$}{<}avr/interrupt.\+h\texorpdfstring{$>$}{>} \#include \texorpdfstring{$<$}{<}util/delay.\+h\texorpdfstring{$>$}{>} \#include \texorpdfstring{$<$}{<}stdio.\+h\texorpdfstring{$>$}{>}
+
+\#define VM1 PB6 // Pino de controle do motor 1 \#define M1A PB7 // Pino de direção do motor 1 \#define M1B PB5 // Pino de direção do motor 1 \#define VM2 PD7 // Pino de controle do motor 2 \#define M2A PD6 // Pino de direção do motor 2 \#define M2B PD5 // Pino de direção do motor 2
+
+\texorpdfstring{$>$}{>}Pino de controle do IR (Interruptor de interrupção externa) \#define CONTROLE PD2
+
+\texorpdfstring{$>$}{>}LED 1 \#define LED1 PB0
+
+\texorpdfstring{$>$}{>}LED 2 \#define LED2 PB1
+
+\texorpdfstring{$>$}{>}LED 3 \#define LED3 PB2
+
+\texorpdfstring{$>$}{>}Pino para o sensor LDR \#define LDR PC0
+
+\begin{quote}
+ \#define LASER PD4 // Pino do laser \end{quote}
+volatile uint32\+\_\+t ULTIMOCODIGO = 0, ULTIMOCODIGOVALIDO = 0; volatile uint8\+\_\+t contador = 0; volatile uint8\+\_\+t laser\+State = 0; // Estado do laser (0 = desligado, 1 = ligado)
+
+void setup() \{ // Definindo os pinos como saída DDRB = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} VM1) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1A) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1B) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED1) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED2) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED3); DDRD = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} VM2) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2A) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2B) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LASER); DDRC = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LDR); // LDR como entrada
+
+// Configurar o pino de controle do IR como entrada DDRD \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} CONTROLE);
+
+// Ativar pull-\/up no pino CONTROLE (botão do controle IR) PORTD \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} CONTROLE);
+
+// Inicializa o laser desligado PORTD \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LASER);
+
+// Habilitar interrupções externas para o controle IR EICRA \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} ISC01); // Interrupção na borda de descida do pino CONTROLE (PD2) EIMSK \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} INT0); // Habilitar interrupção externa INT0
+
+// Habilitar interrupções globais sei();
+
+// Configura temporizadores, se necessário (por exemplo, para controlar o laser) TCCR0A = 0; TCCR0B = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} CS02) \texorpdfstring{$\vert$}{|} (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} CS00); // Prescaler 1024 TIMSK0 = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} TOIE0); // Ativar interrupção de overflow do timer 0 \}
+
+// Função de movimento para frente void Andar\+Frente() \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1B); // M1B LOW PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2B); // M2B LOW PORTB \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1A); // M1A HIGH PORTD \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2A); // M2A HIGH \}
+
+// Função de movimento para trás void Andar\+Tras() \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1A); // M1A LOW PORTD \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2A); // M2A LOW PORTB \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1B); // M1B HIGH PORTB \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2B); // M2B HIGH \}
+
+// Parar os motores void Parar() \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1A) \& \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1B); // M1A e M1B LOW PORTD \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2A) \& \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2B); // M2A e M2B LOW \}
+
+// Função para giro (rodando em torno do próprio eixo) void Giro() \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2B); // M2B LOW PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1A); // M1A LOW PORTB \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M1B); // M1B HIGH PORTD \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} M2A); // M2A HIGH \}
+
+// Função para ligar e desligar o laser a cada segundo void alternar\+Laser() \{ if (laser\+State) \{ PORTD \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LASER); // Desliga o laser \} else \{ PORTD \texorpdfstring{$\vert$}{|}= (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LASER); // Liga o laser \} laser\+State = !laser\+State; \}
+
+ISR(\+TIMER0\+\_\+\+OVF\+\_\+vect) \{ static uint16\+\_\+t count = 0; count++; if (count \texorpdfstring{$>$}{>}= 1000) // Aproximadamente 1 segundo \{ alternar\+Laser(); // Alterna o estado do laser count = 0; \} \}
+
+// Interrupção para o controle IR ISR(\+INT0\+\_\+vect) \{ // A leitura do código IR seria aqui, em um ambiente real você precisaria de um decodificador IR // Em vez disso, apenas simula um código IR ULTIMOCODIGO = 3924233868; // Exemplo de código recebido if (ULTIMOCODIGO == 3924233868) \{ if (ULTIMOCODIGOVALIDO == 2673870592) \{ Andar\+Frente(); \} else if (ULTIMOCODIGOVALIDO == 2657158912) \{ Giro(); \} else if (ULTIMOCODIGOVALIDO == 2640447232) \{ // Andar para direita \} else if (ULTIMOCODIGOVALIDO == 2590312192) \{ // Andar para esquerda \} else \{ Parar(); \} \}
+
+// Atualiza o código IR válido ULTIMOCODIGOVALIDO = ULTIMOCODIGO; \}
+
+int main(void) \{ setup();
+
+while (1) \{ // Loop principal uint16\+\_\+t ldrleitura = ADC; // Leitura do valor do LDR (ajustado para ADC) if (ldrleitura \texorpdfstring{$>$}{>}= 700) \{ // Sequência de giro com LEDs if (contador == 0) \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED1); contador++; Giro(); \+\_\+delay\+\_\+ms(800); Parar(); \+\_\+delay\+\_\+ms(5000); \} else if (contador == 1) \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED2); contador++; Giro(); \+\_\+delay\+\_\+ms(800); Parar(); \+\_\+delay\+\_\+ms(5000); \} else if (contador == 2) \{ PORTB \&= \texorpdfstring{$\sim$}{\string~}(1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} LED3); contador++; Giro(); \+\_\+delay\+\_\+ms(800); Parar(); \+\_\+delay\+\_\+ms(5000); \} \}
+
+\+\_\+delay\+\_\+ms(150); // Pequeno atraso para evitar chamadas rápidas ao loop \} \} 

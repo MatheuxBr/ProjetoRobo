@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gigantes de MDF: codigo</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gigantes de MDF<span id="projectnumber">&#160;3.0</span>
+   </div>
+   <div id="projectbrief">Projeto referente à disciplina de Programação de Hardware, lecionada pelo professor Sergio Schina, do curso de Engenharia de Computação da Universidade Santa Cecília.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div><div class="header">
+  <div class="headertitle"><div class="title">codigo</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>#include &lt;avr/io.h&gt; #include &lt;avr/interrupt.h&gt; #include &lt;util/delay.h&gt; #include &lt;stdio.h&gt;</p>
+<p>#define VM1 PB6 // Pino de controle do motor 1 #define M1A PB7 // Pino de direção do motor 1 #define M1B PB5 // Pino de direção do motor 1 #define VM2 PD7 // Pino de controle do motor 2 #define M2A PD6 // Pino de direção do motor 2 #define M2B PD5 // Pino de direção do motor 2</p>
+<p>&gt;Pino de controle do IR (Interruptor de interrupção externa) #define CONTROLE PD2</p>
+<p>&gt;LED 1 #define LED1 PB0</p>
+<p>&gt;LED 2 #define LED2 PB1</p>
+<p>&gt;LED 3 #define LED3 PB2</p>
+<p>&gt;Pino para o sensor LDR #define LDR PC0</p>
+<blockquote class="doxtable">
+<p>&zwj; #define LASER PD4 // Pino do laser </p>
+</blockquote>
+<p>volatile uint32_t ULTIMOCODIGO = 0, ULTIMOCODIGOVALIDO = 0; volatile uint8_t contador = 0; volatile uint8_t laserState = 0; // Estado do laser (0 = desligado, 1 = ligado)</p>
+<p>void setup() { // Definindo os pinos como saída DDRB = (1 &lt;&lt; VM1) | (1 &lt;&lt; M1A) | (1 &lt;&lt; M1B) | (1 &lt;&lt; LED1) | (1 &lt;&lt; LED2) | (1 &lt;&lt; LED3); DDRD = (1 &lt;&lt; VM2) | (1 &lt;&lt; M2A) | (1 &lt;&lt; M2B) | (1 &lt;&lt; LASER); DDRC = (1 &lt;&lt; LDR); // LDR como entrada</p>
+<p>// Configurar o pino de controle do IR como entrada DDRD &amp;= ~(1 &lt;&lt; CONTROLE);</p>
+<p>// Ativar pull-up no pino CONTROLE (botão do controle IR) PORTD |= (1 &lt;&lt; CONTROLE);</p>
+<p>// Inicializa o laser desligado PORTD &amp;= ~(1 &lt;&lt; LASER);</p>
+<p>// Habilitar interrupções externas para o controle IR EICRA |= (1 &lt;&lt; ISC01); // Interrupção na borda de descida do pino CONTROLE (PD2) EIMSK |= (1 &lt;&lt; INT0); // Habilitar interrupção externa INT0</p>
+<p>// Habilitar interrupções globais sei();</p>
+<p>// Configura temporizadores, se necessário (por exemplo, para controlar o laser) TCCR0A = 0; TCCR0B = (1 &lt;&lt; CS02) | (1 &lt;&lt; CS00); // Prescaler 1024 TIMSK0 = (1 &lt;&lt; TOIE0); // Ativar interrupção de overflow do timer 0 }</p>
+<p>// Função de movimento para frente void AndarFrente() { PORTB &amp;= ~(1 &lt;&lt; M1B); // M1B LOW PORTB &amp;= ~(1 &lt;&lt; M2B); // M2B LOW PORTB |= (1 &lt;&lt; M1A); // M1A HIGH PORTD |= (1 &lt;&lt; M2A); // M2A HIGH }</p>
+<p>// Função de movimento para trás void AndarTras() { PORTB &amp;= ~(1 &lt;&lt; M1A); // M1A LOW PORTD &amp;= ~(1 &lt;&lt; M2A); // M2A LOW PORTB |= (1 &lt;&lt; M1B); // M1B HIGH PORTB |= (1 &lt;&lt; M2B); // M2B HIGH }</p>
+<p>// Parar os motores void Parar() { PORTB &amp;= ~(1 &lt;&lt; M1A) &amp; ~(1 &lt;&lt; M1B); // M1A e M1B LOW PORTD &amp;= ~(1 &lt;&lt; M2A) &amp; ~(1 &lt;&lt; M2B); // M2A e M2B LOW }</p>
+<p>// Função para giro (rodando em torno do próprio eixo) void Giro() { PORTB &amp;= ~(1 &lt;&lt; M2B); // M2B LOW PORTB &amp;= ~(1 &lt;&lt; M1A); // M1A LOW PORTB |= (1 &lt;&lt; M1B); // M1B HIGH PORTD |= (1 &lt;&lt; M2A); // M2A HIGH }</p>
+<p>// Função para ligar e desligar o laser a cada segundo void alternarLaser() { if (laserState) { PORTD &amp;= ~(1 &lt;&lt; LASER); // Desliga o laser } else { PORTD |= (1 &lt;&lt; LASER); // Liga o laser } laserState = !laserState; }</p>
+<p>ISR(TIMER0_OVF_vect) { static uint16_t count = 0; count++; if (count &gt;= 1000) // Aproximadamente 1 segundo { alternarLaser(); // Alterna o estado do laser count = 0; } }</p>
+<p>// Interrupção para o controle IR ISR(INT0_vect) { // A leitura do código IR seria aqui, em um ambiente real você precisaria de um decodificador IR // Em vez disso, apenas simula um código IR ULTIMOCODIGO = 3924233868; // Exemplo de código recebido if (ULTIMOCODIGO == 3924233868) { if (ULTIMOCODIGOVALIDO == 2673870592) { AndarFrente(); } else if (ULTIMOCODIGOVALIDO == 2657158912) { Giro(); } else if (ULTIMOCODIGOVALIDO == 2640447232) { // Andar para direita } else if (ULTIMOCODIGOVALIDO == 2590312192) { // Andar para esquerda } else { Parar(); } }</p>
+<p>// Atualiza o código IR válido ULTIMOCODIGOVALIDO = ULTIMOCODIGO; }</p>
+<p>int main(void) { setup();</p>
+<p>while (1) { // Loop principal uint16_t ldrleitura = ADC; // Leitura do valor do LDR (ajustado para ADC) if (ldrleitura &gt;= 700) { // Sequência de giro com LEDs if (contador == 0) { PORTB &amp;= ~(1 &lt;&lt; LED1); contador++; Giro(); _delay_ms(800); Parar(); _delay_ms(5000); } else if (contador == 1) { PORTB &amp;= ~(1 &lt;&lt; LED2); contador++; Giro(); _delay_ms(800); Parar(); _delay_ms(5000); } else if (contador == 2) { PORTB &amp;= ~(1 &lt;&lt; LED3); contador++; Giro(); _delay_ms(800); Parar(); _delay_ms(5000); } }</p>
+<p>_delay_ms(150); // Pequeno atraso para evitar chamadas rápidas ao loop } } </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
