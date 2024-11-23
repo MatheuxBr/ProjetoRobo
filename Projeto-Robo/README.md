@@ -1,35 +1,35 @@
-# Projeto Robo
- 
-<h1 align = "center">Projeto Robô</h1>
+# Gigantes de MDF
 
-Projeto referente à disciplina de Programação de Hardware, lecionada pelo professor Sergio Schina, do curso de Engenharia de Computação da Universidade Santa Cecília.
+## Descrição do Projeto
+Este projeto tem como objetivo o desenvolvimento de um robô controlado por microcontrolador Atmega328p, utilizando sensores e atuadores, como motor DC, sensor infravermelho (VS1838), LDR (fotoresistor), e um laser vermelho. O robô é capaz de realizar movimentos, direcionar o laser, efetuar disparos e executar outros comportamentos definidos no edital.
 
-## Participantes
-
+### Participantes:
 - Matheus Garcia
 - Thiago Taveira
 - Vinicius Morão
 - Matheus Yamauti
 
-## Sobre
+---
 
-O objetivo principal deste projeto consiste em aplicar os conhecimentos adquiridos ao longo do curso. O trabalho abrange o planejamento e a concepção dos componentes envolvidos, o desenvolvimento da estrutura e a programação do código-fonte de um robô destinado ao microcontrolador Atmega-328p, utilizando a linguagem C. O robô projetado deverá ser capaz de realizar movimentos, direcionar um feixe de laser, efetuar disparos e executar outros comportamentos conforme estabelecido no edital.
+## Componentes Utilizados
 
-## Componentes
+- **Atmega328p**: Microcontrolador principal
+- **Sensor Infravermelho (VS1838)**: Para detecção de sinais infravermelhos
+- **LDR 20mm**: Sensor de luz para detecção de intensidade de luz
+- **Laser Vermelho**: Feixe de laser para direcionamento
+- **Motor DC 3V-6V**: Para movimentação do robô
+- **LEDs**: Indicadores de status e comportamentos
 
-- Atmega328p
-- Sensor Infravermelho (Vs1838)
-- LDR 20mm
-- Laser Vermelho
-- Motor DC 3v-6v
-- LEDs
+---
 
-## Softwares
+## Softwares Utilizados
 
-- Arduino IDE
-- AutoCAD
-- Doxygen
-- KiCad
-- PCB-Proto
-- RDWorks
-- SimulIDE
+- **Arduino IDE**: Para programação e upload do código no microcontrolador
+- **AutoCAD**: Para o design da estrutura do robô
+- **Doxygen**: Para documentação do código
+- **KiCad**: Para o design de circuitos e placas de circuito impresso (PCBs)
+- **PCB-Proto**: Para prototipagem de PCBs
+- **RDWorks**: Para controle de máquinas de corte a laser
+- **SimulIDE**: Para simulação de circuitos eletrônicos
+
+---
